@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useTransition } from "react";
 import English from "../assets/English.png";
 import Vietnam from "../assets/Vietnam.png";
+import "./Language.css";
 
-const Languages = ({ changeLanguage, t }) => {
+const Languages = ({ changeLanguage}) => {
+    const {t} = useTransition();
+
   return (
     <div className="languageStyle">
       <img

@@ -27,16 +27,17 @@ const Todolist = () => {
   const [activeKey, setActiveKey] = useState("all");
   const [listTodo, setListTodo] = useState([]);
   const [taskText, setTaskText] = useState("");
+  const [sortBy, setSortBy] = useState("0");
 
-  const sortTodos = (todosSort) => {
+  const sortTodos = (todosToSort) => {
     switch (sortBy) {
       case "1":
-        return todosSort.sort((a, b) => a.name.localeCompare(b.name));
+        return todosSort.sort((a, b) => a.text.localeCompare(b.text));
       case "2":
-        return todosSort.sort((a, b) => b.name.localeCompare(a.name));
+        return todosSort.sort((a, b) => b.text.localeCompare(a.text));
 
       default:
-        return todosSort;
+        return todosToSort;
     }
   };
 
@@ -44,7 +45,7 @@ const Todolist = () => {
     setSortBy(e.target.value);
   };
 
-    const sortedTodos = sortTodos([...listTodo]);
+  const sortedTodos = sortTodos([...listTodo]);
 
   const handleTabSelect = (key) => {
     setActiveKey(key);
@@ -78,7 +79,7 @@ const Todolist = () => {
   };
 
   const deleteButtonStyle = {
-    margin: "0 0 0 5px",
+    margin: "10px 0 0 5px",
     background: "red",
     color: "white",
     border: "none",
@@ -90,6 +91,7 @@ const Todolist = () => {
       const newTask = {
         text: taskText,
         status: activeKey === "complete" ? "complete" : "active",
+        date: formatDate(),
       };
       setListTodo([...listTodo, newTask]);
       setTaskText("");
@@ -233,6 +235,7 @@ const Todolist = () => {
                         style={checkboxStyle}
                       />
                       {task.text} ({task.status})
+                      <span className="text-date">{task.date}</span>
                       <button
                         style={deleteButtonStyle}
                         onClick={() => handleDeleteTask(index)}
@@ -273,6 +276,7 @@ const Todolist = () => {
                         style={checkboxStyle}
                       />
                       {task.text} ({task.status})
+                      <span className="text-date">{task.date}</span>
                       <button
                         style={deleteButtonStyle}
                         onClick={() => handleDeleteTask(index)}

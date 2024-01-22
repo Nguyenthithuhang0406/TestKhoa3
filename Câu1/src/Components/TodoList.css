@@ -22,3 +22,8 @@ body {
     border-radius: 10px;
     background-color: darkgrey;
   }
+  .text-date{
+    font-size: 13px;
+    color: dimgrey;
+    margin-left: 50%;
+  }
