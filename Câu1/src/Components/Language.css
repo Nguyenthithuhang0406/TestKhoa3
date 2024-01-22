@@ -1,0 +1,13 @@
+.languageStyle{
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: end;
+}
+.vietnamese{
+    cursor: pointer;
+}
+.english{
+    cursor: pointer;
+    margin-left: 5px;
+}
