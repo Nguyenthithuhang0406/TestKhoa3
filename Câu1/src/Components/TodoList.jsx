@@ -8,6 +8,7 @@ import "./TodoList.css";
 
 import { useTranslation } from "react-i18next";
 import Languages from "./Languages";
+import "./i18n.js";
 
 const formatDate = () => {
   const date = new Date();
@@ -129,8 +130,8 @@ const Todolist = () => {
 
   return (
     <div style={centerTabsStyle}>
-      <Container style={rightTabPaneStyle} t={t}>
-        <Languages changeLanguage={changeLanguage} t={t} />
+      <Container style={rightTabPaneStyle}>
+        <Languages changeLanguage={changeLanguage} />
 
         <h1 className="text-center">{t("name")}</h1>
 
